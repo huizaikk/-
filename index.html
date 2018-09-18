@@ -1,28 +1,72 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 360px;
+
+            background-color: orange;
+            margin: 100px auto;
+            padding: 20px;
+
+
+        }
+        #box-t{
+            color: white;
+            font-size: 25px;
+            text-align: center;
+
+        }
+        #box-x{
+            background-color: orangered;
+            width: 220px;
+
+            color: white;
+            font-size: 140px;
+            margin: 100px 40px 0 40px ;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+
+
+
+        }
+
+
+    </style>
 </head>
 <body>
-  <h1>分镜稿</h1>
-    <p>百事大战Coca</p>
-    <p>镜头1：某人在电脑桌前看可乐广告视频的背影 中景 2s</p>
-    <p>镜头2：某人听到铃声，去外面接电话 全景 3s  近景</p>
-    <p>镜头3：视频里小鬼踩可口可乐 2s</P>
-     <p>镜头4：百事可乐（滑稽），可口可乐（不爽）3s 近景</P>
-    <p>镜头5：百事（滑稽），然后从屏幕外伸出一拳头 特写 1s</P>
-     <p>镜头6：百事被打飞 2s</P>
-      <p>镜头7：可口（滑稽），百事（不爽）4s</P>
-      <p>镜头8：百事（笑，DIO脸），砸瓦鲁多！ 4s</P>
-    <p>镜头9：静止两秒</P>
-<p>镜头10：百事走向可口 全景 2s 近景 2s</P>
-    <p>镜头11：可口：“你以为只有你能动吗” 百事（诧异脸）纳尼 5s</P>
-        <p>镜头12：欧拉欧拉欧拉 5s（开门声）</P>
-            <p>镜头13：可乐保持原来的位置，某人走到桌子前 3s</P>
-                <p>镜头14：某人打开百事 中景1s</P>
-                    <p>镜头15：百事一脸坏笑 特写 2s</P>
-                       
+<div id="box">
+<div id="box-t"></div>
+<div id="box-x">
+    d
+
+
+
+</div>
+</div>
+<script>
+window.onload=function () {
+    //日期对象
+    var date=new Date();
+    var y=date.getFullYear();
+    var m=date.getMonth()+1;
+    var d=date.getDate();
+    var week=date.getDay();
+    var weeks=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    $('box-t').innerText=y+'年'+m+"月"+d+"日"+weeks[week];
+    $('box-x').innerText=d;
+
+
+   function $(id) {
+       return typeof id==="string"?document.getElementById(id):null;
+
+   }
+}
+</script>
 </body>
-</html>
