@@ -36,44 +36,48 @@
 
 
         }
-         p{
+        p{
 
             font-size: 40px;
-           text-align: center;
-             color: aqua;
-             }
+            text-align: center;
+            color: aqua;
+        }
 
 
     </style>
 </head>
 <body>
 <div id="box">
-<div id="box-t"></div>
-<div id="box-x">
-    d
+    <div id="box-t"></div>
+    <div id="box-x">
+        d
 
 
 
+    </div>
 </div>
-</div>
-    <p>龙龙日历</p>
+<p id="kk"></p>
 <script>
-window.onload=function () {
-    //日期对象
-    var date=new Date();
-    var y=date.getFullYear();
-    var m=date.getMonth()+1;
-    var d=date.getDate();
-    var week=date.getDay();
-    var weeks=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
-    $('box-t').innerText=y+'年'+m+"月"+d+"日"+weeks[week];
-    $('box-x').innerText=d;
+    window.onload=function () {
+        alert('龙龙你好')
+        //日期对象
+        var date=new Date();
+        var y=date.getFullYear();
+        var m=date.getMonth()+1;
+        var d=date.getDate();
+        var week=date.getDay();
+        var weeks=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        $('box-t').innerText=y+'年'+m+"月"+d+"日"+weeks[week];
+        $('box-x').innerText=d;
+        $('kk').innerText='龙龙今天是'+weeks[week]+'!'+'你今天做些什么？'
 
 
-   function $(id) {
-       return typeof id==="string"?document.getElementById(id):null;
+        function $(id) {
+            return typeof id==="string"?document.getElementById(id):null;
 
-   }
-}
+        }
+    }
 </script>
 </body>
+</html>
+
