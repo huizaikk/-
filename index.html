@@ -2,100 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>加油</title>
+    <title>情人节</title>
     <style>
-body{
-    background: url("head.png") no-repeat;
-}
-        #box{
-            width: 300px;
-            height: 360px;
-
-            background-color: orange;
-            margin: 100px auto;
-            padding: 20px;
-
-
-
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
-        #box-t{
-            color: white;
-            font-size: 25px;
-            text-align: center;
-
+        #time{
+            color:red;
+            font-size: 200px;
+            text-align:center ;
+            margin-top: 300px;
         }
-        #box-x{
-            background-color: orangered;
-            width: 220px;
-
-            color: white;
-            font-size: 140px;
-            margin: 100px 40px 0 40px ;
-            display: flex;
-
-            justify-content: center;
-            align-items: center;
-
-
-
-
+        #time2{
+            color:red;
+            font-size: 200px;
+            text-align:center ;
+            margin-top: 300px;
         }
-        p{
-
-            font-size: 40px;
-            text-align: center;
-            color: aqua;
-
+        #pi{
+            display: none;
+            margin:300px auto;
         }
-        #box-p{
-           width: 410px;
-            height: 209px;
-            margin-top: -270px ;
-            margin-left: 150px;
+        body{
+            background-color: black;
         }
-        #box-j{
-            width: 250px;
-            margin: -270px 0px 0px 1400px;
+        embed{
+            margin:0 auto ;
         }
-
-
     </style>
 </head>
-<body >
+<body>
+<div id="time">5</div>
+<img id="pi" src="13.gif" alt="" >
+<div id="time2"></div>
 
-<div id="box">
-    <div id="box-t"></div>
-    <div id="box-x">
-        d
-
-
-
-    </div>
-
-</div>
-<div id="box-p"><img src="12.gif"></div>
-<div id="box-j"><img src="timg.gif"></div>
-<p id="kk"></p>
+<audio autoplay="autoplay" controls="controls" preload="auto" src="http://111.208.73.42:83/2Q2W2CCFF9948B48B579A795CB9FCE40EEAE0706099E_unknown_9000DEC198831EC103EDC51B4848CC000BC5EAA7_1_111.208.25.232_83/jsdx.sc.chinaz.com/Files/DownLoad/sound1/201806/10294.mp3"></audio>
 <script>
-    window.onload=function () {
-        alert('龙龙你好')
-        //日期对象
-        var date=new Date();
-        var y=date.getFullYear();
-        var m=date.getMonth()+1;
-        var d=date.getDate();
-        var week=date.getDay();
-        var weeks=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
-        $('box-t').innerText=y+'年'+m+"月"+d+"日"+weeks[week];
-        $('box-x').innerText=d;
-        $('kk').innerText='龙龙今天是'+weeks[week]+'!'+'你今天做些什么？'
-
-
-        function $(id) {
-            return typeof id==="string"?document.getElementById(id):null;
-
-        }
+window.onload=function () {
+    var i=7;
+  var timer=  setInterval(function () {
+    $('time').innerText-=1;
+    if($('time').innerText==='0'){
+        clearInterval(timer);
+        $('time').style.display='none';
+        $('pi').style.display='block';
     }
+    },1000);
+    var timer2=setInterval(function () {
+        i-=1;
+        console.log(i);
+        if (i==0){
+            clearInterval(timer2);
+            $('pi').style.display='none';
+            i=0;
+            $('time2').innerText='老婆！我爱你'
+        }
+    },1000);
+}
+function $(id) {
+    return typeof id==="string"?document.getElementById(id):null;
+}
 </script>
 </body>
 </html>
