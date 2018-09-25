@@ -2,68 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>情人节</title>
+    <title>高考倒计时</title>
     <style>
         *{
             margin: 0;
             padding: 0;
             list-style: none;
         }
-        #time{
-            color:red;
-            font-size: 200px;
-            text-align:center ;
-            margin-top: 300px;
+        body{
+            background: url("8.jpg")  no-repeat;
+            background-size: 1600px;
         }
-        #time2{
-            color:red;
-            font-size: 200px;
-            text-align:center ;
-            margin-top: 300px;
+        #time{
+            text-align: center;
+            margin-top: 0px;
+            font-size: 80px;
+            color: black;
+
         }
         #pi{
-            display: none;
-            margin:300px auto;
-        }
-        body{
-            background-color: black;
-        }
-        embed{
-            margin:0 auto ;
+            width: 300px;
+            height: 180px;
+            margin-left: 50%;
+            margin-top: 7%;
+
+
         }
     </style>
 </head>
 <body>
-<div id="time">5</div>
-<img id="pi" src="13.gif" alt="" >
-<div id="time2"></div>
-
-<audio autoplay="autoplay" controls="controls" preload="auto" src="http://111.208.73.42:83/2Q2W2CCFF9948B48B579A795CB9FCE40EEAE0706099E_unknown_9000DEC198831EC103EDC51B4848CC000BC5EAA7_1_111.208.25.232_83/jsdx.sc.chinaz.com/Files/DownLoad/sound1/201806/10294.mp3"></audio>
+<div id="time">距离高考还有xx天xx小时</div>
+<img id="pi" src="3.gif" alt="">
 <script>
-window.onload=function () {
-    var i=7;
-  var timer=  setInterval(function () {
-    $('time').innerText-=1;
-    if($('time').innerText==='0'){
-        clearInterval(timer);
-        $('time').style.display='none';
-        $('pi').style.display='block';
+    window.onload=function () {
+        var time1=document.getElementById('time');
+        var nextdate=new Date('2019/6/07 9:00:00');
+        setInterval(function () {
+         var time2=new Date();
+         var cur=time2.getTime();
+         var next=nextdate.getTime();
+         var cha=parseInt(next-cur);
+         var tian=parseInt(cha/(3600000*24));
+            var xiaoshi=parseInt(cha/3600000%24);
+            var min=parseInt(cha/60000%60);
+            var miao=parseInt(cha/1000%60);
+         time1.innerText='距离高考还有'+tian+'天'+xiaoshi+'小時'+min+'分鈡'+miao+'秒'
+
+
+        },1000)
+
+
     }
-    },1000);
-    var timer2=setInterval(function () {
-        i-=1;
-        console.log(i);
-        if (i==0){
-            clearInterval(timer2);
-            $('pi').style.display='none';
-            i=0;
-            $('time2').innerText='老婆！我爱你'
-        }
-    },1000);
-}
-function $(id) {
-    return typeof id==="string"?document.getElementById(id):null;
-}
+    function $(id) {
+        return typeof id==="string"?document.getElementById(id):null;
+
+    }
+
 </script>
 </body>
 </html>
