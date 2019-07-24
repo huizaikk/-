@@ -2,82 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>白色情人节</title>
+    <title>爱你龙龙！</title>
     <style>
         *{
             margin: 0;
             padding: 0;
             list-style: none;
-        }
-        #time{
-            color:red;
-            font-size: 200px;
-            text-align:center ;
-            margin-top: 300px;
-        }
-        #time2{
-            color:green;
-            font-size: 200px;
-            text-align:center ;
-            margin-top: 300px;
-        }
-        #pi{
-            display: none;
-            margin:300px auto;
 
         }
         body{
             background-color: black;
         }
-        embed{
-            margin:0 auto ;
+        span{
+            width: 35px;
+            height: 30px;
+            background: url("1.png") no-repeat;
+            position: absolute;
+            background-size: 100% 100%;
+            animation: flash 1s alternate infinite;
         }
+        span:hover{
+            transform: scale(3.3) rotate(360deg) !important;
+            transition: all 1s;
+        }
+        @keyframes flash {
+            0%{opacity: 0;}
+            100%{opacity: 1;}
 
+        }
     </style>
 </head>
 <body>
-<div id="time">5</div>
-<img id="pi" src="13.gif" alt="" >
-<div id="time2"></div>
+<span></span>
+ <audio autoplay="autoplay" loop="loop" preload="auto" src="http://sc1.111ttt.cn/2018/1/03/13/396131229550.mp3"></audio>
 
-<audio autoplay="autoplay" controls="controls" preload="auto" src="http://sc1.111ttt.cn/2018/1/03/13/396131229550.mp3"></audio>
 <script>
-
-window.onload=function () {
-    var i=7;
-  var timer=  setInterval(function () {
-
-    $('time').innerText-=1;
-    if($('time').innerText==='0'){
-        clearInterval(timer);
-        $('time').style.display='none';
-        $('pi').style.display='block';
-
+    window.onload=function () {
+        //获取网页的高和宽
+        var screenw=document.documentElement.clientWidth;
+        var screenh=document.documentElement.clientHeight;
+        //创造100个星星
+        for(var i=0;i<100;i++)
+        {
+            var span=document.createElement('span');
+            document.body.appendChild(span);
+            //把100个星星随机创建在屏幕上
+            var x=parseInt(Math.random()*screenw);
+            var y=parseInt(Math.random()*screenh);
+            span.style.left=x+'px';
+            span.style.top=y+'px';
+            //将星星大小进行随机处理
+            var scale=Math.random()*1.5;
+            span.style.transform='scale('+scale+','+scale+')';
+            //将星星的动画进行随机大小播放
+            var pilv=Math.random()*1.5;
+            span.style.animationDelay=pilv+'s';
+            
+        
+     
 
     }
-
-
-    },1000);
-    var timer2=setInterval(function () {
-        i-=1;
-        console.log(i);
-
-        if (i==0){
-            clearInterval(timer2);
-            $('pi').style.display='none';
-            i=0;
-            $('time2').innerText='龙龙！我爱你'
+    var time1=setInterval(function(){
+        	var time=null;var lu=0,target=600;
+    
+  time=  setInterval(function () {
+        lu+=(target-lu)*0.1;
+        span.style.marginleft=lu+'px';
+        if (Math.round(lu)>=target)
+        {
+            lu=target;
+            clearInterval(time);
         }
 
-    },1000);
+    },20)
 
 
+        ,2000})
 
+        
 }
-function $(id) {
-    return typeof id==="string"?document.getElementById(id):null;
 
-}
 </script>
 </body>
 </html>
