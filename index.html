@@ -87,7 +87,7 @@
     }
     
     var screenh=document.documentElement.clientHeight;
- var time1=null,num=0,ums=0,usm=1;
+ var time1=null,num=0,ums=0,usm=1,chu=4/3;
 time1=setInterval(
                 function () {
                     num+=2;
@@ -95,7 +95,7 @@ time1=setInterval(
                     usm-=0.002;
                     console.log(num,ums);
 
-                    if(num>=0&&num<=screenh/（4/3）){
+                    if(num>=0&&num<=screenh/chu){
                         $('boxs').style.top=num+'px';
                         $('boxs').style.transform = 'rotate('+ums+'deg)';
                          $('boxs').style.opacity = usm;
