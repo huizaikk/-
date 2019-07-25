@@ -20,9 +20,10 @@
             position: absolute;
             background-size: 100% 100%;
             animation: flash 1s alternate infinite;
+            z-index: 1;
         }
         span:hover{
-            transform: scale(3.3) rotate(360deg) !important;
+            transform: scale(3.3) rotate(309deg) !important;
             transition: all 1s;
         }
         @keyframes flash {
@@ -30,9 +31,23 @@
             100%{opacity: 1;}
 
         }
+        button{
+            width: 300px;
+            height: 160px;
+            font-size: 50px;
+        }
+        #boxs{
+            position: absolute;
+            left: 40%;
+            width: 250px;
+            height: 330px;
+            z-index: 10;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
+    <div> <img id="boxs" src="12.jpg"></div>
 <span></span>
  <audio autoplay="autoplay" loop="loop" preload="auto" src="http://sc1.111ttt.cn/2018/1/03/13/396131229550.mp3"></audio>
 
@@ -41,9 +56,15 @@
         //获取网页的高和宽
         var screenw=document.documentElement.clientWidth;
         var screenh=document.documentElement.clientHeight;
+        
+        
+       
         //创造100个星星
+        var arry=[];
         for(var i=0;i<100;i++)
         {
+        
+
             var span=document.createElement('span');
             document.body.appendChild(span);
             //把100个星星随机创建在屏幕上
@@ -57,29 +78,44 @@
             //将星星的动画进行随机大小播放
             var pilv=Math.random()*1.5;
             span.style.animationDelay=pilv+'s';
+            arry[i]=span;
+            
+
             
         
      
 
     }
-    var time1=setInterval(function(){
-        	var time=null;var lu=0,target=600;
     
-  time=  setInterval(function () {
-        lu+=(target-lu)*0.1;
-        span.style.marginleft=lu+'px';
-        if (Math.round(lu)>=target)
-        {
-            lu=target;
-            clearInterval(time);
-        }
+    var screenh=document.documentElement.clientHeight;
+ var time1=null,num=0,ums=0,usm=1;
+time1=setInterval(
+                function () {
+                    num+=5;
+                    ums+=0.1;
+                    usm-=0.0085;
+                    console.log(num,ums);
 
-    },20)
+                    if(num>=0&&num<=screenh/2){
+                        $('boxs').style.top=num+'px';
+                        $('boxs').style.transform = 'rotate('+ums+'deg)';
+                         $('boxs').style.opacity = usm;
+                    }
+                    else {
+                        clearInterval(time1);
+                      
+                    }
+                }
 
-
-        ,2000})
-
+            ,20)
+    
+ 
         
+}
+function $(id){
+
+    return typeof id==="string"? document.getElementById(id
+        ): null;
 }
 
 </script>
