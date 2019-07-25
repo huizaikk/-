@@ -92,10 +92,10 @@ time1=setInterval(
                 function () {
                     num+=2;
                     ums+=0.1;
-                    usm-=0.005;
+                    usm-=0.002;
                     console.log(num,ums);
 
-                    if(num>=0&&num<=screenh/2){
+                    if(num>=0&&num<=screenh/（4/3）){
                         $('boxs').style.top=num+'px';
                         $('boxs').style.transform = 'rotate('+ums+'deg)';
                          $('boxs').style.opacity = usm;
